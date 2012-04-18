@@ -1,6 +1,8 @@
 <h1>ofxTLGlitch</h1>
 
-This is openframeworks addon make it easier to glitch your movie.
+<h3><a href="http://vimeo.com/40434954">View on Vimeo</a></h3>
+
+ofxTLGlitch make it quite easier to glitch your movie.
 
 <h3>Usage</h3>
 
