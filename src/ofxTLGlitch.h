@@ -14,30 +14,34 @@ public:
 	ofxTLGlitch();
 	~ofxTLGlitch();
 	
-	void setup(string movie);
-	void update(ofEventArgs& e);
-	void draw(ofEventArgs& e);
-	void mousePressed(int x, int y, int button);
+	void setupVideo(string name);
+	void setupImage(string name);
+	void update(ofEventArgs&);
+	void draw(ofEventArgs&);
+	void keyPressed(ofKeyEventArgs& args);
+	void mousePressed(ofMouseEventArgs& args);
+	void windowResized(ofResizeEventArgs& args);
 	
+	void enableKeyPressed() { isEnableKeyPressed = true; }
+	void disableKeyPressed() { isEnableKeyPressed = false; }
+	
+	bool isPlaying() { return timeline.getIsPlaying(); }
 	void togglePlay();
 	void pause();
 	void play();
 	void reset();
-	bool isPlaying() { return timeline.getIsPlaying(); }
 	
+	bool isTimelineShowing() { return isShowing; }
 	void toggleTimelineShowing();
 	void showTimeline();
 	void hideTimeline();
-	bool isTimelineShowing() { return isShowing; }
 	
-	void setWidth(int width);
 	
 protected:
 	
-	vector<int> formats;
-	
 	bool isShowing;
 	bool isReset;
+	bool isEnableKeyPressed;
 	
 	ofxTimeline timeline;
 	ofVideoPlayer video;
