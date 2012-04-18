@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector.h>
 
+#define NOT_IMPL ofLogError("ofxTLGlitch", string(__PRETTY_FUNCTION__) + "not implemented yet"); throw "not implemented yet";
 
 int formats[] = {
 //	GL_ALPHA,
@@ -75,7 +76,7 @@ ofxTLGlitch::~ofxTLGlitch() {
 }
 
 //--------------------------------------------------------------
-void ofxTLGlitch::setupVideo(string name){
+void ofxTLGlitch::loadVideo(string name){
 	
 	/* setup video
 	 ==============*/
@@ -109,8 +110,8 @@ void ofxTLGlitch::setupVideo(string name){
 }
 
 //--------------------------------------------------------------
-void ofxTLGlitch::setupImage(string name){
-	
+void ofxTLGlitch::loadImage(string name){
+	NOT_IMPL
 }
 
 //--------------------------------------------------------------

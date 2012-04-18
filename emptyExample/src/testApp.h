@@ -4,8 +4,6 @@
 #include "ofxTLGlitch.h"
 
 
-
-
 class testApp : public ofBaseApp{
 
 	public:
@@ -24,15 +22,5 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 	
 	
-	
 	ofxTLGlitch glitch;
-	
-	
-	
-	
-	
-	
-	
-	
-	
 };

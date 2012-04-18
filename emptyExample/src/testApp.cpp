@@ -1,5 +1,4 @@
 #include "testApp.h"
-#include "vector.h"
 
 
 //--------------------------------------------------------------
@@ -7,10 +6,8 @@ void testApp::setup(){
 	
 	ofSetVerticalSync(true);
 	ofBackground(.15 * 255);
-	//ofHideCursor();
 	
-	
-	glitch.setupVideo("../video/smile.mp4");
+	glitch.loadVideo("../video/smile.mp4");
 }
 
 //--------------------------------------------------------------

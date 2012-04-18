@@ -14,13 +14,10 @@ public:
 	ofxTLGlitch();
 	~ofxTLGlitch();
 	
-	void setupVideo(string name);
-	void setupImage(string name);
+	void loadVideo(string name);
+	void loadImage(string name);
 	void update(ofEventArgs&);
 	void draw(ofEventArgs&);
-	void keyPressed(ofKeyEventArgs& args);
-	void mousePressed(ofMouseEventArgs& args);
-	void windowResized(ofResizeEventArgs& args);
 	
 	void enableKeyPressed() { isEnableKeyPressed = true; }
 	void disableKeyPressed() { isEnableKeyPressed = false; }
@@ -45,6 +42,11 @@ protected:
 	
 	ofxTimeline timeline;
 	ofVideoPlayer video;
+	
+	
+	void keyPressed(ofKeyEventArgs& args);
+	void mousePressed(ofMouseEventArgs& args);
+	void windowResized(ofResizeEventArgs& args);
 };
 
 #endif
