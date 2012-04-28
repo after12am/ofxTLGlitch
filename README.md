@@ -14,3 +14,7 @@ void testApp::setup(){
     glitch.loadVideo(path);
 }
 ```
+
+<h3>Screenshot</h3>
+
+<img src="https://github.com/after12am/ofxTLGlitch/raw/master/emptyExample/bin/screenshot2.jpg"/>
