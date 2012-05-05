@@ -1,6 +1,13 @@
+//
+//  ofxTLVideoGlitch.h
+//
+//  Created by Okami Satoshi on 12/05/05.
+//  Copyright (c) 2012 Okami Satoshi. All rights reserved.
+//
 
 #include "ofxTLGlitch.h"
 #include "ofxTLUtils.h"
+#include "ofxTLVideoGlitch.h"
 #include <iostream>
 #include <vector.h>
 
@@ -53,6 +60,7 @@ ofxTLGlitch::ofxTLGlitch() {
 	isShowing = true;
 	isReset = false;
 	isEnableKeyPressed = true;
+	isMousePressed = false;
 	
 	ofAddListener(ofEvents.update, this, &ofxTLGlitch::update);
 	ofAddListener(ofEvents.draw, this, &ofxTLGlitch::draw);
@@ -76,18 +84,10 @@ ofxTLGlitch::~ofxTLGlitch() {
 }
 
 //--------------------------------------------------------------
-void ofxTLGlitch::loadVideo(string name){
+void ofxTLGlitch::setupTimeline() {
 	
-	/* setup video
-	 ==============*/
-	video.loadMovie(name);
-	video.setLoopState(OF_LOOP_NORMAL);
-	
-	
-	/* setup timeline
-	 =================*/
 	timeline.setup();
-	timeline.setDurationInSeconds(video.getDuration());
+	timeline.setDurationInSeconds(media->getDuration());
 	timeline.setLoopType(OF_LOOP_NORMAL);
 	timeline.addKeyframes("inner format", "innerFormat.xml", ofRange(0, 100))->setDefaultValue(1);
 	timeline.addKeyframes("pack format", "packFormat.xml", ofRange(0, 100))->setDefaultValue(1);
@@ -102,16 +102,27 @@ void ofxTLGlitch::loadVideo(string name){
 	timeline.setMovePlayheadOnPaste(true);
 	timeline.setAutosave(false);
 	timeline.setCurrentTime(0);
-	timeline.play();
-	
-	/* start video
-	 ==============*/
-	video.play();
 }
 
 //--------------------------------------------------------------
-void ofxTLGlitch::loadImage(string name){
-	NOT_IMPL
+void ofxTLGlitch::loadVideo(string name){
+	
+	media = new ofxTLVideoGlitch();
+	media->load(name);
+	
+	setupTimeline();
+	
+	timeline.play();
+	media->play();
+}
+
+//--------------------------------------------------------------
+void ofxTLGlitch::loadImage(string name, float duration){
+	
+	media = new ofxTLImageGlitch(duration);
+	media->load(name);
+	
+	setupTimeline();
 }
 
 //--------------------------------------------------------------
@@ -121,20 +132,25 @@ void ofxTLGlitch::update(ofEventArgs&){
 		
 		bool playing = isPlaying();
 		
-		video.setPosition(0);
+		media->setPosition(0);
 		timeline.stop();
 		
 		timeline.setCurrentTime(0);
 		
 		if (playing) {
 			timeline.play();
-			video.play();
+			media->play();
 		}
 		
 		isReset = false;
 	}
 	
-	video.update();
+	if (isMousePressed) {
+		media->setPosition(timeline.getCurrentTime() / media->getDuration());
+		isMousePressed = false;
+	}
+	
+	media->update();
 }
 
 //--------------------------------------------------------------
@@ -148,7 +164,6 @@ void ofxTLGlitch::draw(ofEventArgs&){
 	
 	
 	ofEnableAlphaBlending();
-	
 	
 	/* overlay with gray rect field
 	 ===============================*/
@@ -164,17 +179,13 @@ void ofxTLGlitch::draw(ofEventArgs&){
 	
 	/* draw video
 	 ================*/
-	
 	ofPushMatrix();
 	
 	// set compression
 	//ofTexCompression compression;
 	//tex.setCompression(compression);
 	
-	ofTexture tex;
-	tex.allocate(video.width, video.height, innerFormat);
-	tex.loadData(video.getPixels(), video.width * widthPrc, video.height * heightPrc, packFormat);
-	tex.draw( (ofGetWidth() - video.width) / 2, (ofGetHeight() - video.height) / 2, video.width, video.height);
+	media->draw(widthPrc, heightPrc, innerFormat, packFormat);
 	
 	ofPopMatrix();
 	
@@ -213,8 +224,7 @@ void ofxTLGlitch::mousePressed(ofMouseEventArgs& args) {
 	if (!timeline.getIsPlaying()) {
 		
 		if (args.y < 30) {
-			
-			video.setPosition(timeline.getCurrentTime() / video.getDuration());
+			isMousePressed = true;
 		}
 	}
 }
@@ -238,14 +248,14 @@ void ofxTLGlitch::togglePlay() {
 void ofxTLGlitch::pause() {
 	
 	timeline.stop();
-	video.setPaused(true);
+	media->pause();
 }
 
 //--------------------------------------------------------------
 void ofxTLGlitch::play() {
 	
 	timeline.play();
-	video.play();
+	media->play();
 }
 
 //--------------------------------------------------------------

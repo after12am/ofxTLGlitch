@@ -8,6 +8,7 @@ void testApp::setup(){
 	ofBackground(.15 * 255);
 	
 	glitch.loadVideo("../video/smile.mp4");
+	//glitch.loadImage("../image/image.jpeg", 60);
 }
 
 //--------------------------------------------------------------

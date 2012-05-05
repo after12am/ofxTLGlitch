@@ -2,12 +2,11 @@
 
 <h3><a href="http://vimeo.com/40434954">View on Vimeo</a></h3>
 
-ofxTLGlitch make it easy to glitch your movie as you like. The concept of this library is easy to use and play. So you can glitch any given frame of your favorite movie in advance, because of timeline based. Have a good time!
+ofxTLGlitch make it easy to glitch your movie and image as you like. The concept of this library is easy to use and play. So you can glitch any given frame of your favorite movie in advance, because of timeline based. Have a good time!
 
 <h3>Usage</h3>
 
-call 1 line below and it's ready to glitch!
-
+When you want to glitch movie, you call 1 line below.
 ```html
 void testApp::setup(){
     
@@ -15,6 +14,10 @@ void testApp::setup(){
 }
 ```
 
-<h3>Screenshot</h3>
-
-<img src="https://github.com/after12am/ofxTLGlitch/raw/master/emptyExample/bin/screenshot2.jpg"/>
+In case of image, you call 1 line below.
+```html
+void testApp::setup(){
+	
+	glitch.loadImage(path, duration);
+}
+```

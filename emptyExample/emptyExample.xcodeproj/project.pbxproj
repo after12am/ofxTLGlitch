@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		746388411554EEDA00D945F6 /* ofxTLVideoGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746388401554EEDA00D945F6 /* ofxTLVideoGlitch.cpp */; };
+		746388491554FF7600D945F6 /* ofxTLImageGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 746388481554FF7600D945F6 /* ofxTLImageGlitch.cpp */; };
 		74C83230153EAF810049093A /* ofxTLGlitch.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74C8322F153EAF810049093A /* ofxTLGlitch.cpp */; };
 		74FEE1D0153A64E4001BB67B /* guiBaseObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74FEE187153A64E4001BB67B /* guiBaseObject.cpp */; };
 		74FEE1D1153A64E4001BB67B /* guiCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 74FEE189153A64E4001BB67B /* guiCallback.cpp */; };
@@ -129,6 +131,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7463883F1554EED300D945F6 /* ofxTLVideoGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLVideoGlitch.h; sourceTree = "<group>"; };
+		746388401554EEDA00D945F6 /* ofxTLVideoGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTLVideoGlitch.cpp; sourceTree = "<group>"; };
+		746388421554EFC200D945F6 /* ofxTLIGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLIGlitch.h; sourceTree = "<group>"; };
+		746388471554FF6F00D945F6 /* ofxTLImageGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLImageGlitch.h; sourceTree = "<group>"; };
+		746388481554FF7600D945F6 /* ofxTLImageGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTLImageGlitch.cpp; sourceTree = "<group>"; };
 		74C8322E153EAF790049093A /* ofxTLGlitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxTLGlitch.h; sourceTree = "<group>"; };
 		74C8322F153EAF810049093A /* ofxTLGlitch.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxTLGlitch.cpp; sourceTree = "<group>"; };
 		74FEE187153A64E4001BB67B /* guiBaseObject.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = guiBaseObject.cpp; sourceTree = "<group>"; };
@@ -351,6 +358,11 @@
 			children = (
 				74C8322E153EAF790049093A /* ofxTLGlitch.h */,
 				74C8322F153EAF810049093A /* ofxTLGlitch.cpp */,
+				7463883F1554EED300D945F6 /* ofxTLVideoGlitch.h */,
+				746388401554EEDA00D945F6 /* ofxTLVideoGlitch.cpp */,
+				746388421554EFC200D945F6 /* ofxTLIGlitch.h */,
+				746388471554FF6F00D945F6 /* ofxTLImageGlitch.h */,
+				746388481554FF7600D945F6 /* ofxTLImageGlitch.cpp */,
 			);
 			name = src;
 			path = ../src;
@@ -1056,6 +1068,8 @@
 				74FEE37E153A6503001BB67B /* tinyxmlparser.cpp in Sources */,
 				74FEE37F153A6503001BB67B /* ofxXmlSettings.cpp in Sources */,
 				74C83230153EAF810049093A /* ofxTLGlitch.cpp in Sources */,
+				746388411554EEDA00D945F6 /* ofxTLVideoGlitch.cpp in Sources */,
+				746388491554FF7600D945F6 /* ofxTLImageGlitch.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
