@@ -1,23 +1,28 @@
-<h1>ofxTLGlitch</h1>
+ofxTLGlitch
+===========
 
-<h3><a href="http://vimeo.com/40434954">View on Vimeo</a></h3>
+ofxTLGlitch is a openframeworks addon. This addon make it easy to glitch your movie and image as you like. The concept of this library is easy to use and play. So you can glitch any given frame of your favorite movie in advance, because of timeline based. 
 
-ofxTLGlitch make it easy to glitch your movie and image as you like. The concept of this library is easy to use and play. So you can glitch any given frame of your favorite movie in advance, because of timeline based. Have a good time!
+## Demo
 
-<h3>Usage</h3>
+### <a href="http://vimeo.com/40434954">View on Vimeo</a>
 
-When you want to glitch movie, you call 1 line below.
-```html
-void testApp::setup(){
-    
-    glitch.loadVideo(path);
+If you are interested in above, I hope that you try ofxTLGlitch using your favorite movie. Have a good time!
+
+## Usage
+
+method for glitching your video.
+
+```
+void testApp::setup() {
+    glitch.loadVideo('/path/to/video');
 }
 ```
 
-In case of image, you call 1 line below.
-```html
-void testApp::setup(){
-	
-	glitch.loadImage(path, duration);
+method for glitching your image.
+
+```
+void testApp::setup() {
+    glitch.loadImage('/path/to/image', duration);
 }
 ```
